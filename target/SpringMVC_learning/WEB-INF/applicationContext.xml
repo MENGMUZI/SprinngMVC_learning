@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--
+    applicationContext.xml定义的是“root webapp context”,直译过来就是根应用上下文。
+    （一般配置bean、数据库连接、事务、shiro、开启任务task配置等等)
+    -->
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    dispatcher-servlet.xml定义一个servlet的应用上下文，是applicationContext.xml上下文的子类。
+    （一般配置视图解析器、扫描指定的包中的类上的注解、添加静态资源访问的支持等等）
+
+    在初始化时，applicationContext.xml首先初始化，而dispatcher-servlet.xml在对应的servlet实例化时启动，
+    因此applicationContext.xml初始化在前，而dispatcher-servlet.xml初始化在后。
+
+    dispatcher-servlet.xml中的bean可以引用父类applicationContext.xml上下文中的bean，反之不可以。
+
+    -->
+
+    <context:component-scan base-package="com.mmz"></context:component-scan>
+
+    <!--指定视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--视图路径-->
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <!--视图名称后缀-->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+</beans>
