@@ -1,9 +1,7 @@
 package com.mmz.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : mengmuzi
@@ -62,6 +60,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *    ** :能替代多层路径
  *       @RequestMapping("/a/ ** /test01")
  *
+ * 6.REST 简洁的URL提交请求，以请求的方式区分对资源的操作（Put Get Post）
+ *        从页面上只能发起两种请求，GET和POST
+ *
+ *
+ * 7.SpringMVC如何获取请求带来的各种信息
+ * @RequestParam: 获取请求参数(是?后面的值)
+ *          @RequestParam("user") String  username
+ *          username = request.getParameter()
+ *               value: 指定获取参数的key
+ *               required(): 这个参数是否必须
+ *               defailtValue():默认值，没有带默认是null
+ *
+ * @RequestHeader:获取请求头中某个key的值
+ *          @RequestHeader("User-Agent") String userAgent
+ *          request.getHeader("User-Agent")
+ *
+ * @CookieValue: 获取某个cookie的值
+ *          @CookieValue("JSESSIONID") String jid
+ *
  *
  *
  *
@@ -87,6 +104,18 @@ public class MyFirstController {
         return "success";
     }
 
+    @RequestMapping("/test01")
+    public String test01(@RequestParam(value = "name", required = false, defaultValue = "hehe") String  username){
+        System.out.println("这个参数值：" + username);
+        return "success";
+    }
+
+    @RequestMapping("/test02")
+    public String test02(@RequestHeader("User-Agent") String userAgent, @CookieValue("JSESSIONID") String jid){
+        System.out.println("获取请求头中的信息：" + userAgent);
+        System.out.println("获取cookie中的JSESSIONID的值：" + jid);
+        return "success";
+    }
 }
 
 

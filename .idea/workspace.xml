@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce9403b5-35d7-49b2-9594-b89ccad36605" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mmz/controller/MyFirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mmz/controller/MyFirstController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,8 +63,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mmz/controller/MyFirstController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            <state relative-caret-position="248">
+              <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2304#2305#0" expanded="true" />
@@ -264,7 +263,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563005538021" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563010494742" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -464,7 +463,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562939743831</updated>
-      <workItem from="1562939745404" duration="16284000" />
+      <workItem from="1562939745404" duration="19778000" />
     </task>
     <task id="LOCAL-00001" summary="Spring_MVC框架HelloWorld输出测试">
       <created>1563000895723</created>
@@ -477,7 +476,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16284000" />
+    <option name="totallyTimeSpent" value="19778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="0" />
@@ -494,7 +493,7 @@
       <window_info anchor="bottom" id="Application Servers" weight="0.32880434" />
       <window_info anchor="bottom" id="Java Enterprise" weight="0.32880434" />
       <window_info anchor="bottom" id="Spring" weight="0.32880434" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.329235" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5007153" side_tool="true" weight="0.32880434" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -624,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mmz/controller/MyFirstController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        <state relative-caret-position="248">
+          <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2304#2305#0" expanded="true" />
