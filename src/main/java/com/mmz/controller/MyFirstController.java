@@ -1,7 +1,12 @@
 package com.mmz.controller;
 
+import com.mmz.pojo.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 /**
  * @author : mengmuzi
@@ -78,7 +83,17 @@ import org.springframework.web.bind.annotation.*;
  *
  * @CookieValue: 获取某个cookie的值
  *          @CookieValue("JSESSIONID") String jid
+ *          以前的方法获取某个cookie
+ *          Cookie[] cookies = request.getCookies();
+ *          for(Cookie c:cookies){
+ *              if(c.getName().equals("JSESSIONID")){
  *
+ *              }
+ *          }
+ * 8.传入POJO，SpringMVC自动封装
+ *   1)将POJO中的每一个属性，从request参数中尝试或取出来，并封装
+ *   2)还可以级联封装，属性的属性
+ *   3)请求参数的参数名和对象中的属性名一一对应
  *
  *
  *
@@ -90,7 +105,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 //@RequestMapping(value = "/say",method = RequestMethod.GET,params = {"username !=123","pwd","!age"})
-@RequestMapping("/say")
+@RequestMapping
 public class MyFirstController {
     //  /代表当前项目下开始，处理当前项目下的hello请求
     @RequestMapping("/hello")
@@ -114,6 +129,25 @@ public class MyFirstController {
     public String test02(@RequestHeader("User-Agent") String userAgent, @CookieValue("JSESSIONID") String jid){
         System.out.println("获取请求头中的信息：" + userAgent);
         System.out.println("获取cookie中的JSESSIONID的值：" + jid);
+        return "success";
+    }
+
+
+    @RequestMapping("/book")
+    public String addBook(Book book){
+        System.out.println("我要保存的图书：" + book );
+        return "success";
+    }
+
+    /**
+     * SpringMVC可以直接在参数上写原生的API
+     * HttpServletRequest
+     * HttpSession
+     */
+    @RequestMapping("/test03")
+    public String test03(HttpSession session, HttpServletRequest request){
+        request.setAttribute("requestParam","我是请求域中的。。。");
+        session.setAttribute("sessionParam","我是session域中的。。。");
         return "success";
     }
 }

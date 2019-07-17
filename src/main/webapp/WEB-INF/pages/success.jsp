@@ -12,5 +12,7 @@
 </head>
 <body>
 <h1>success!!</h1>
+request: ${requestScope.requestParam}<br/>
+session: ${requestScope.sessionParam}<br/>
 </body>
 </html>
