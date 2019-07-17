@@ -2,10 +2,13 @@ package com.mmz.controller;
 
 import com.mmz.pojo.Book;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 
 /**
@@ -95,6 +98,8 @@ import javax.servlet.http.HttpSession;
  *   2)还可以级联封装，属性的属性
  *   3)请求参数的参数名和对象中的属性名一一对应
  *
+ * 9.数据输出:传入Model/Map/ModelMap
+ *
  *
  *
  *
@@ -155,6 +160,29 @@ public class MyFirstController {
         session.setAttribute("sessionParam","我是session域中的。。。");
         return "success";
     }
+
+    @RequestMapping("/test04")
+    public String test04(Map<String,Object> map){
+        map.put("msg","你好");
+        return "success";
+    }
+
+    @RequestMapping("/test05")
+    public String test05(Model model){
+        model.addAttribute("msg","你好！");
+        return "success";
+    }
+
+    @RequestMapping("/test06")
+    public String test06(ModelMap modelMap){
+        modelMap.addAttribute("msg","你好美！");
+        return "success";
+    }
+
+
+
+
+
 }
 
 

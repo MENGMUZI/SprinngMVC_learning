@@ -4,6 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/applicationContext.xml</param-value>
@@ -27,6 +28,7 @@
       -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
 
 
 </web-app>

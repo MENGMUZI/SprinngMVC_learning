@@ -5,15 +5,18 @@
   Time: 22:37
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored = "false"%>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>TestSuccess</title>
 </head>
 <body>
 <h1>success!!</h1>
 request:${requestScope.requestParam}<br/>
-session:${requestScope.sessionParam}<br/>
+session:${sessionScope.sessionParam}<br/>
+pageContext:${pageScope.msg}<br/>
+request:${requestScope.msg}<br/>
+session:${sessionScope.msg}<br/>
+application:${applicationScope.msg}<br/>
 </body>
 </html>
