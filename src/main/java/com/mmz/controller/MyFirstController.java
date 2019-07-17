@@ -143,6 +143,11 @@ public class MyFirstController {
      * SpringMVC可以直接在参数上写原生的API
      * HttpServletRequest
      * HttpSession
+     * Locale:国际化有关的区域信息对象
+     * InputStream
+     * OutputStream
+     * Reader
+     * Writer
      */
     @RequestMapping("/test03")
     public String test03(HttpSession session, HttpServletRequest request){
