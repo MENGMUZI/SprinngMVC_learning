@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.portlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -98,7 +99,27 @@ import java.util.Map;
  *   2)还可以级联封装，属性的属性
  *   3)请求参数的参数名和对象中的属性名一一对应
  *
- * 9.数据输出:传入Model/Map/ModelMap
+ * 9.数据输出:在方法处传入Model/Map/ModelMap
+ *   这些参数里面保存的所有数据都会放在请求域中，可以在页面获取。
+ *   关系：
+ *      Map,Model,ModelMap 最终都是 BindingAwareModelMap 在工作
+ *      相当于给 BindingAwareModelMap 中保存的东西会被放在请求域中
+ *
+ * 10.数据输出：方法返回值为ModelAndView
+ *
+ * 11.SpringMVC提供了一种可以临时给Session域中保存数据的方式
+ *   使用注解@SessionAttributes 只能标在类上
+ *   @SessionAttributes（value ="msg"）
+ *   给 BindingAwareModelMap 中保存数据， 同时给session中放一份
+ *   value 指定保存数据时放的数据的key值
+ *   推荐使用session中的原生API
+ *
+ * 12.DispatcherServlet源码分析
+ *
+ * 13.视图解析
+ *
+ *
+ *
  *
  *
  *
@@ -107,7 +128,8 @@ import java.util.Map;
  *
  */
 
-
+//@SessionAttributes(value = "msg")
+@SessionAttributes(value ={"msg"},types ={String.class})
 @Controller
 //@RequestMapping(value = "/say",method = RequestMethod.GET,params = {"username !=123","pwd","!age"})
 @RequestMapping
@@ -164,20 +186,71 @@ public class MyFirstController {
     @RequestMapping("/test04")
     public String test04(Map<String,Object> map){
         map.put("msg","你好");
+        System.out.println(map.getClass());
         return "success";
     }
 
     @RequestMapping("/test05")
     public String test05(Model model){
         model.addAttribute("msg","你好！");
+        System.out.println(model.getClass());
         return "success";
     }
 
     @RequestMapping("/test06")
     public String test06(ModelMap modelMap){
         modelMap.addAttribute("msg","你好美！");
-        return "success";
+        System.out.println(modelMap.getClass());
+        return "success";//class org.springframework.validation.support.BindingAwareModelMap
     }
+
+    @RequestMapping("/test07")
+    public ModelAndView test07(){
+        //之前的返回值就叫视图名，视图名视图解析器是会帮我们最终拼串得到页面的真实地址
+        ModelAndView view = new ModelAndView("success");
+        view.addObject("msg","你真的好吗？");
+        return view;
+    }
+
+    //视图解析
+    @RequestMapping("/hellotest01")
+    public String Hello01(){
+        //方法一：相对路径
+        return "../../hello";
+
+    }
+    /**
+     * forward:转发到一个页面
+     * /hello.jsp:转发到当前项目
+     */
+    @RequestMapping("/hellotest02")
+    public String Hello02(){
+        //方法二：forward
+        System.out.println("hellotest02");
+        return "forward:/hello.jsp";
+    }
+    //可以多次转发
+    @RequestMapping("/hellotest03")
+    public String Hello03(){
+        System.out.println("hellotest03");
+        return "forward:/hellotest02";
+    }
+
+
+    /**
+     * 重定向  redirect
+     *        原生的Servlet重定向需要加项目名才能成功
+     *        response.sendRedirect("/hello.jsp")
+     *        SpringMVC中为路径自动拼接上项目名
+     *
+     */
+    @RequestMapping("/hellotest04")
+    public String hellotest04(){
+        return "redirect:/hello.jsp";
+
+    }
+
+
 
 
 
